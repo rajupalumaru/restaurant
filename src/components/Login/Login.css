@@ -1,0 +1,92 @@
+.container {
+    display: flex;
+    box-shadow: whitesmoke;
+}
+
+.login {
+    display: flex;
+    margin: 15px auto;
+    background-color: #eeecec;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 40px;
+    left: 20%;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 50px;
+    width: 350px;
+}
+
+.login-form h1 {
+    color: black;
+    font-weight: solid;
+    font-size: 50px;
+    padding-bottom: 30px;
+    margin: 0;
+
+}
+
+.label-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-form label {
+    color: blueviolet;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.label-form input {
+    margin-bottom: 10px;
+    border: 0;
+    border-bottom: 1px solid #5f5d5d;
+    outline: none;
+    padding: 10px;
+}
+
+.login-forgot {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-forgot span {
+    margin-left: 5px;
+}
+
+.login-forgot a {
+    margin-left: 50px;
+}
+
+.login-image {
+    padding: 50px;
+    position: relative;
+    width: 420px;
+}
+
+.login-image img {
+    margin: 0 auto;
+}
+
+.login-button {
+    padding: 15px 35px;
+    background-color: rgb(87, 80, 237);
+    color: white;
+    border-radius: 22px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
+.sign {
+    position: absolute;
+    top: 15%;
+}
