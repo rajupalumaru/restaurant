@@ -1,0 +1,27 @@
+.menuList {
+    padding: 50px;
+}
+.menuList-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.menuList-card {
+    display: flex;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 4px;
+    float: left;
+    width: 29%;
+    margin: 10px;
+}
+.menuList-card img{
+    width:100px
+
+}
+.menuList-card-info {
+    padding: 0px 20px;
+}
+.menuList-card-info p {
+   font-size: 12px;
+}

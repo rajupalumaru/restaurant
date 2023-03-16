@@ -1,0 +1,47 @@
+.dashbord {
+    margin-right: 30px;
+
+}
+.sidebar {
+    padding-top: 20px;
+   width: 300px; 
+   height: 100%; 
+    background-color: rgb(234, 224, 224);
+    align-items: center;
+    text-align: center;
+    /* display: block; */
+}
+.mainbar {
+    width: 80%;
+    padding: 10px;
+}
+.sidebar-profile  {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffff;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+    padding-top:10px;
+
+}
+.navigator {
+    display: flex;
+    background-color: #fff;
+    margin:0px 35px;
+    margin-bottom: 10px;
+   
+
+}
+ 
+.navigator a{
+    text-decoration: none;
+}
+.sidebar-logout {
+    background-color: white;
+    margin: 35px;
+   
+}
+.sidebar-info{
+    margin-bottom: 50%;
+}
