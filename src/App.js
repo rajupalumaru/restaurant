@@ -9,11 +9,11 @@ import SignUp from './components/Signup/SignUp';
 function App() {
   return (
     <div>
-      <Login/>
+      {/* <Login/> */}
       {/* <SignUp /> */}
       {/* <ForgotPassword /> */}
       {/* <ResetPassword /> */}
-      {/* <DashboardProfile/> */}
+      <DashboardProfile/>
     </div>
   );
 }

@@ -1,0 +1,31 @@
+.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.Mui-selected.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+    background-color: #5607ba;
+    color: white;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+    text-transform: none !important;
+    font-size: 18px !important;
+    padding: 20px 20px !important;
+
+}
+ 
+.mainbar h1 {
+    padding: 0 0 30px;
+}
+.css-13xfq8m-MuiTabPanel-root {
+    padding: 40px 0px !important;
+}   
+.css-1wvnaxz-MuiTableCell-root.MuiTableCell-head
+,th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-alignRight.MuiTableCell-sizeMedium.css-1nslmh4-MuiTableCell-root {
+    background-color: #ddd7d7 !important;
+    color: black !important;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root:hover{
+    background-color: #5607ba !important;
+    color: #fff;
+}

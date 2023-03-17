@@ -3,6 +3,7 @@ import { Box, Tab } from '@mui/material'
 import React, { useState } from 'react'
 import OpenOrders from './tabs/OpenOrders';
 import TableAccupancy from './tabs/TableAccupancy';
+import './DashboardBody.css';
 
 const DashboardBody = () => {
     const [value, setValue] = useState('1');
@@ -16,9 +17,9 @@ const DashboardBody = () => {
             <h1>My Dashboard</h1>
             <Box sx={{ width: '100%', typography: 'body1' }}>
                 <TabContext value={value}>
-                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider',backgroundColor:'whitesmoke' }}>
                         <TabList onChange={handleChange} aria-label="lab API tabs example">
-                            <Tab label="Table Accupancy" value="1" />
+                            <Tab label="Table Occupancy" value="1" />
                             <Tab label="Open Orders" value="2" />
                         </TabList>
                     </Box>
