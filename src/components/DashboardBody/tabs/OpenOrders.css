@@ -1,0 +1,29 @@
+.cancelButton {
+    margin-right: 10px !important;
+    border-radius: 50px !important;
+    padding: 5px 15px !important;
+}
+.MuiButtonBase-root {
+    display: flex !important;
+   padding: 10px !important;
+}
+.orderStatus {
+    display: flex;
+}
+.markButton {
+    border-radius: 50px !important;
+    padding: 5px 15px !important;
+}
+.modalButtons {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between !important;
+}
+.modalButtonConfirm {
+    border-radius: 8px !important;
+
+}
+.modalButtonCancel {
+    border-radius: 8px !important;
+
+}

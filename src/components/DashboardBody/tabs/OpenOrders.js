@@ -1,109 +1,82 @@
 import React, { useState } from 'react';
-import { makeStyles, styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Button } from '@mui/material';
-import ModalComponent from '../../ModalComponent/ModalComponent';
+import MaterialTable from 'material-table';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import './OpenOrders.css';
 
-
-
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
-
-function createData(TableName, Items, Total, Status) {
-  return { TableName, Items, Total, Status };
-}
-
-const rows = [
-  createData('ABC', '3 Items', '$ 850', 'Mark Delivered'),
-  createData('ABC', '3 Items', '$ 850', 'Mark Delivered'),
-  createData('ABC', '3 Items', '$ 850', 'Mark Delivered'),
-  createData('ABC', '3 Items', '$ 850', 'Mark Delivered'),
-  createData('ABC', '3 Items', '$ 850', 'Mark Delivered'),
-  createData('ABC', '3 Items', '$ 850', 'Mark Delivered'),
-  createData('ABC', '3 Items', '$ 850', 'Mark Delivered'),
-  createData('ABC', '3 Items', '$ 850', 'Mark Delivered'),
-
-
+const data = [
+  { id: 1, TableName: 'Order #001', Items: '3 Items', Total: '$50.00', Status: 'Mark Delivered' },
+  { id: 2, TableName: 'Order #002', Items: '3 Items', Total: '$30.00', Status: 'Mark Delivered' },
+  { id: 3, TableName: 'Order #003', Items: '3 Items', Total: '$75.00', Status: 'Cancel' },
+  { id: 4, TableName: 'Order #004', Items: '3 Items', Total: '$100.00', Status: 'Mark Delivered' },
 ];
 
 const OpenOrders = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [selectedData, setSelectedData] = useState(null);
+  const [selectedStatus, setSelectedStatus] = useState(null);
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
+  const handleOpen = (rowData, status) => {
+    setSelectedData(rowData);
+    setSelectedStatus(status);
+    setOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setOpenModal(false);
+  const handleClose = () => {
+    setSelectedData(null);
+    setSelectedStatus(null);
+    setOpen(false);
   };
-  const openHandleModal = () => {
-    setOpenModal(true);
-  }
+
+  const handleStatusAction = (status) => {
+    // Handle the action based on the selected status here
+    console.log(`Action for ${status} status`);
+    handleClose();
+  };
+
+  const columns = [
+    { title: 'TableName', field: 'TableName' },
+    { title: 'Items', field: 'Items' },
+    { title: 'Total', field: 'Total' },
+    {
+      title: 'Status',
+      field: 'Status',
+      render: (rowData) => (
+        <div className='orderStatus'>
+          <Button onClick={() => handleOpen(rowData, 'Cancel')} className='cancelButton'>Cancel</Button>
+          <Button onClick={() => handleOpen(rowData, 'Mark Delivered')} className='markButton'>Mark Delivered</Button>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell >Table Name</StyledTableCell>
-              <StyledTableCell align="right">Items</StyledTableCell>
-              <StyledTableCell align="right">Total</StyledTableCell>
-              <StyledTableCell align="right">Status</StyledTableCell>
-
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                  {row.TableName}
-                </StyledTableCell>
-                <StyledTableCell align="right">{row.Items}</StyledTableCell>
-                <StyledTableCell align="right">{row.Total}</StyledTableCell>
-                <StyledTableCell align="right">
-                  <div>
-                    <Button variant="contained" onClick={handleOpenModal}>{row.Status}</Button>
-                    <Button variant="contained" onClick={openHandleModal}>{row.Status}</Button>
-                  </div>
-                </StyledTableCell>
-
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <ModalComponent
-        open={openModal}
-        onClose={handleCloseModal}
-        title="Example Modal"
-        body={<p>This is some example modal content.</p>}
+    <>
+      <MaterialTable
+        title="My Table"
+        data={data}
+        columns={columns}
+        options={{
+          search: false,
+          paging: false,
+          filtering: false,
+          exportButton: false,
+          headerStyle: { backgroundColor: '#F5F5F5', fontWeight: 'bold' },
+          rowStyle: { backgroundColor: '#EEE' },
+          direction: 'rtl',
+        }}
       />
-
-    </div>
+      <Modal open={open} onClose={handleClose}>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: '#fff', padding: '2rem' }}>
+          <h3>{selectedStatus} for {selectedData?.TableName}</h3>
+          <div className='modalButtons'>
+          <Button variant="contained" color="primary" onClick={() => handleStatusAction(selectedStatus)} className='modalButtonConfirm'>Confirm</Button>
+          <Button variant="contained" color="secondary" onClick={handleClose} className='modalButtonCancel'>Cancel</Button>
+          </div>
+        </div>
+      </Modal>
+    </>
   );
-}
+};
+
 export default OpenOrders;
